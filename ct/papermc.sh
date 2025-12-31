@@ -42,7 +42,7 @@ function update_script() {
   msg_ok "Stopped Services"
 
   msg_info "Updating $APP to v${LATEST_VERSION}-${LATEST_BUILD}"
-  mv /opt/minecraft/ /opt/minecraft-backup
+  cp -r /opt/minecraft/ /opt/minecraft-backup
   download_with_progress ${DOWNLOAD_URL} /opt/minecraft/server.jar
   
   cd /opt/minecraft
@@ -57,8 +57,6 @@ function update_script() {
     msg_warn "No upstream SHA provided; computed: ${ACTUAL_SHA}"
   fi
  
-  cp /opt/minecraft-backup/eula.txt /opt/minecraft
-  cp -r /opt/minecraft-backup/plugins/ /opt/minecraft
   chown -R minecraft:minecraft /opt/minecraft
   
   msg_info "Starting Services"
