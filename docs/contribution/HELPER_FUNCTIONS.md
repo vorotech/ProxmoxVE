@@ -306,7 +306,7 @@ CLEAN_INSTALL=1 fetch_and_deploy_gh_release "appname" "owner/repo" "tarball" "la
 |-----------|---------|-------------|
 | `name` | required | App name (for version tracking) |
 | `repo` | required | GitHub repo (`owner/repo`) |
-| `type` | `tarball` | Release type: `tarball`, `zipball`, `prebuild`, `binary` |
+| `type` | `tarball` | Release type: `tarball`, `zipball`, `prebuild`, `binary`, `singlefile` |
 | `version` | `latest` | Version tag or `latest` |
 | `dest` | `/opt/[name]` | Destination directory |
 | `asset_pattern` | `""` | For `prebuild`: glob pattern to match asset (e.g. `app-*.tar.gz`) |
