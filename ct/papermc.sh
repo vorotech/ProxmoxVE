@@ -28,7 +28,7 @@ function update_script() {
     exit
   fi
 
-  PAPER_API_ROOT = PAPER_API_ROOT="https://api.papermc.io/v2/projects/paper"
+  PAPER_API_ROOT="https://api.papermc.io/v2/projects/paper"
   LATEST_VERSION=$(curl -fsSL "${PAPER_API_ROOT}" | jq -r '.versions | last')
   LATEST_BUILD=$(curl -fsSL "${PAPER_API_ROOT}/versions/${LATEST_VERSION}" | jq -r '.builds | last')
   BUILD_JSON=$(curl -fsSL "${PAPER_API_ROOT}/versions/${LATEST_VERSION}/builds/${LATEST_BUILD}")
