@@ -1,0 +1,40 @@
+{
+  "name": "PaperMC",
+  "slug": "papermc",
+  "categories": [
+    24
+  ],
+  "date_created": "2025-12-30",
+  "type": "ct",
+  "updateable": true,
+  "privileged": false,
+  "interface_port": 7867,
+  "documentation": "https://docs.papermc.io/",
+  "config_path": "/opt/minecraft/plugins",
+  "website": "https://papermc.io/",
+  "logo": "https://assets.papermc.io/brand/papermc_logo.min.svg",
+  "description": "PaperMC improves Minecraft's ecosystem with fast, secure software and an expanding plugin API, providing quick releases and helpful support as the most widely used, performant, and stable software available. Also this installation includes MCDash plugin – a simple dashboard for your Minecraft server. It allows you to see the current status of your server, the online players, console and more.",
+  "install_methods": [
+    {
+      "type": "default",
+      "script": "ct/papermc.sh",
+      "resources": {
+        "cpu": 4,
+        "ram": 8196,
+        "hdd": 16,
+        "os": "Debian",
+        "version": "13"
+      }
+    }
+  ],
+  "default_credentials": {
+    "username": null,
+    "password": null
+  },
+  "notes": [
+    {
+      "text": "To create your password, you have to execute the following command either in the console or in-game `/panel <password>`",
+      "type": "info"
+    }
+  ]
+}
