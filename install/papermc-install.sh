@@ -58,6 +58,11 @@ else
   msg_warn "No upstream SHA provided; computed: ${ACTUAL_SHA}"
 fi
 
+msg_info "Installing essential plugins"
+mkdir /opt/minecraft/plugins
+fetch_and_deploy_gh_release "redlib" "redlib-org/redlib" "binary" "latest" "/opt/minecraft/plugins" "MCDash-1.1.7.jar"
+msg_ok "Plugins installed"
+
 msg_info "Creating Service"
 cat <<EOF >/etc/systemd/system/minecraft.service
 [Unit]

@@ -57,6 +57,7 @@ function update_script() {
     msg_warn "No upstream SHA provided; computed: ${ACTUAL_SHA}"
   fi
  
+  cp /opt/minecraft-backup/eula.txt /opt/minecraft
   cp -r /opt/minecraft-backup/plugins/ /opt/minecraft
   chown -R minecraft:minecraft /opt/minecraft
   
