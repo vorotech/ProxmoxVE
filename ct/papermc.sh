@@ -5,7 +5,7 @@ source <(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxV
 # License: MIT | https://github.com/community-scripts/ProxmoxVE/raw/main/LICENSE
 # Source: https://github.com/PaperMC/Paper
 
-APP="PaperMC Minecraft Server"
+APP="PaperMC"
 var_cpu="${var_cpu:-4}"
 var_ram="${var_ram:-8192}"
 var_disk="${var_disk:-16}"
