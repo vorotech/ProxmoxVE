@@ -47,6 +47,7 @@ DOWNLOAD_URL="$PAPER_API_ROOT/versions/${LATEST_VERSION}/builds/${LATEST_BUILD}/
 download_with_progress ${DOWNLOAD_URL} /opt/minecraft/server.jar
 
 cd /opt/minecraft
+ACTUAL_SHA=$(sha256sum server.jar | awk '{print $1}')
 if [[ -n "$EXPECTED_SHA" && "$EXPECTED_SHA" != "null" ]]; then
   if [[ "$ACTUAL_SHA" != "$EXPECTED_SHA" ]]; then
     msg_error "SHA256 mismatch for PaperMC (expected ${EXPECTED_SHA}, got ${ACTUAL_SHA})"
