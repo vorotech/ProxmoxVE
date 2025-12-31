@@ -95,29 +95,29 @@ ReadWritePaths=/opt/minecraft
 WantedBy=multi-user.target
 EOF
 
-cat <<EOF >/etc/mc_backup.conf
-MC_SRC_DIR=/opt/minecraft
-BACKUP_DIR=/var/backups/minecraft
-RETAIN_DAYS=7
-EOF
-
-cat <<EOF >/etc/systemd/system/mc-backup.service
+cat <<'EOF' >/etc/systemd/system/mc-backup.service
 [Unit]
 Description=Minecraft backup (tar)
+
 [Service]
 Type=oneshot
-EnvironmentFile=/etc/mc_backup.conf
 ExecStart=/bin/mkdir -p "${BACKUP_DIR}"
 ExecStart=/bin/bash -c 'tar -czf "${BACKUP_DIR}/java-$(date +%%F).tar.gz" "${MC_SRC_DIR}"'
 ExecStartPost=/bin/bash -c 'find "${BACKUP_DIR}" -type f -name "*.tar.gz" -mtime +"${RETAIN_DAYS:-7}" -delete'
+
+Environment="MC_SRC_DIR=/opt/minecraft"
+Environment="BACKUP_DIR=/var/backups/minecraft"
+Environment="RETAIN_DAYS=7"
 EOF
 
 cat <<EOF >/etc/systemd/system/mc-backup.timer
 [Unit]
 Description=Nightly Minecraft backup
+
 [Timer]
 OnCalendar=*-*-* 03:30:00
 Persistent=true
+
 [Install]
 WantedBy=timers.target
 EOF
