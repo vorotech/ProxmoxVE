@@ -34,7 +34,7 @@ function update_script() {
   BUILD_JSON=$(curl -fsSL "${PAPER_API_ROOT}/versions/${LATEST_VERSION}/builds/${LATEST_BUILD}")
   EXPECTED_SHA=$(printf '%s' "$BUILD_JSON" | jq -r '.downloads.application.sha256')
   JAR_NAME=$(printf '%s' "$BUILD_JSON" | jq -r '.downloads.application.name')
-  DOWNLOAD_URL="$PAPER_API_ROOT/versions/${LATEST_VERSION}/builds/${LATEST_BUILD}/downloads/${JAR_NAME}"
+  DOWNLOAD_URL="${PAPER_API_ROOT}/versions/${LATEST_VERSION}/builds/${LATEST_BUILD}/downloads/${JAR_NAME}"
 
   msg_info "Stopping Services"
   systemctl stop mc-backup.timer
