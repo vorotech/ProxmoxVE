@@ -122,7 +122,8 @@ Persistent=true
 WantedBy=timers.target
 EOF
 
-systemctl enable -q --now mc-backup.timer mc-backup.service minecraft
+systemctl enable -q --now minecraft
+systemctl enable -q mc-backup.timer
 msg_ok "Created Service"
 
 motd_ssh
