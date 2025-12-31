@@ -60,7 +60,7 @@ fi
 
 msg_info "Installing essential plugins"
 mkdir /opt/minecraft/plugins
-fetch_and_deploy_gh_release "mcdash" "gnmyt/MCDash" "singlefile" "latest" "/opt/minecraft/plugins" "MCDash-1.1.7.jar"
+fetch_and_deploy_gh_release "MCDash.jar" "gnmyt/MCDash" "singlefile" "latest" "/opt/minecraft/plugins" "MCDash-1.1.7.jar"
 msg_ok "Plugins installed"
 
 msg_info "Creating Service"
