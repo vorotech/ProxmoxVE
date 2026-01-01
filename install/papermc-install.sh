@@ -60,6 +60,10 @@ fi
 
 msg_info "Installing essential plugins"
 mkdir /opt/minecraft/plugins
+download_with_progress https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot /opt/minecraft/plugins/Geyser-Spigot.jar
+msg_ok "Deployed: Geyser plugin"
+download_with_progress https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot /opt/minecraft/plugins/floodgate-spigot.jar
+msg_ok "Deployed: Floodgate plugin"
 fetch_and_deploy_gh_release "MCDash.jar" "gnmyt/MCDash" "singlefile" "latest" "/opt/minecraft/plugins" "MCDash-*.jar"
 msg_ok "Plugins installed"
 
@@ -67,7 +71,9 @@ cat <<EOF >start.sh
 #!/usr/bin/env bash
 exec java -Xms${xms}M -Xmx${xmx}M -jar server.jar nogui
 EOF
+
 chmod +x start.sh
+chown -R minecraft:minecraft /opt/minecraft
 
 msg_info "Creating Service"
 cat <<EOF >/etc/systemd/system/minecraft.service
@@ -79,7 +85,7 @@ After=network.target
 User=minecraft
 Group=minecraft
 WorkingDirectory=/opt/minecraft
-ExecStart=start.sh
+ExecStart=/opt/minecraft/start.sh
 Restart=on-failure
 UMask=0027
 
