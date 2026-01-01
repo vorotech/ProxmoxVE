@@ -33,7 +33,23 @@
   },
   "notes": [
     {
-      "text": "To create your password, you have to execute the following command either in the console or in-game `/panel <password>`",
+      "text": "After server is launched, connect once using Minecraft Client (both Java and Bedrock are supported) with a user you plan to make a server operator.",
+      "type": "info"
+    },
+    {
+      "text": "Next, stop service `systemctl stop minecraft`, start using the shell script `sudo -u minecraft /opt/minecraft/start.sh`, and make an operator by running `op .<username>` (Note: the dot is required).",
+      "type": "info"
+    },
+    {
+      "text": "To create your password, you have to execute the following command either in the console or in-game `panel <password>`",
+      "type": "info"
+    },
+    {
+      "text": "Once password is set, you can login to MCDash Web Console, by visiting http://<IP>:7867. Login `CONSOLE` or `<minecraft user>` depending of where the panel password was set.",
+      "type": "info"
+    },
+    {
+      "text": "Finally, stop the minecraft process (Ctrl+C), start the service `systemctl start minecraft`. MCDash allows to run server commands.",
       "type": "info"
     }
   ]
