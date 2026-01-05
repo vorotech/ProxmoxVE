@@ -49,7 +49,7 @@
       "type": "info"
     },
     {
-      "text": "Finally, stop the minecraft process (Ctrl+C), start the service `systemctl start minecraft`. MCDash allows to run server commands.",
+      "text": "Finally, stop the minecraft process (Ctrl+C), start the service `systemctl start minecraft`. Further, MCDash allows to run server commands.",
       "type": "info"
     }
   ]
